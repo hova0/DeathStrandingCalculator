@@ -55,6 +55,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.adhoc_aggreggate = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.roadbuilder_metalinitial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roadrepair_percentageleft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roadbuilder_metaltotal)).BeginInit();
@@ -370,6 +371,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.adhoc_aggreggate);
             this.panel1.Controls.Add(this.adhoc_amount);
             this.panel1.Controls.Add(this.adhoc_type);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -377,6 +379,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(577, 38);
             this.panel1.TabIndex = 15;
+            // 
+            // adhoc_aggreggate
+            // 
+            this.adhoc_aggreggate.AutoSize = true;
+            this.adhoc_aggreggate.Location = new System.Drawing.Point(222, 8);
+            this.adhoc_aggreggate.Name = "adhoc_aggreggate";
+            this.adhoc_aggreggate.Size = new System.Drawing.Size(86, 19);
+            this.adhoc_aggreggate.TabIndex = 14;
+            this.adhoc_aggreggate.Text = "Aggregate?";
+            this.adhoc_aggreggate.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -408,6 +420,7 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -441,5 +454,6 @@
         private Label label5;
         private Label label4;
         private CheckBox roadrepair_useceramic;
+        private CheckBox adhoc_aggreggate;
     }
 }

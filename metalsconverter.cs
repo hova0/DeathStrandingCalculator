@@ -64,7 +64,7 @@ namespace DeathStrandingCalculator
                 if (amounts[i - 1] != amounts[i])
                 {
                     sb.AppendLine($" {amounts[i - 1]} x {x} {type}");
-                    x = 0;
+                    x = 1;
                 }
                 else
                 {

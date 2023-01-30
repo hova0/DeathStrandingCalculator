@@ -13,7 +13,7 @@ namespace DeathStrandingCalculator
             this.roadbuilder_metalinitial.KeyDown += SuppressEnterKeyDown;
             this.adhoc_amount.KeyDown += SuppressEnterKeyDown;
             this.roadrepair_percentageleft.KeyDown += Roadrepair_percentageleft_KeyDown;
-
+            this.adhoc_aggreggate.CheckedChanged += Adhoc_aggreggate_CheckedChanged;
         }
 
 
@@ -59,12 +59,12 @@ namespace DeathStrandingCalculator
             roadrepair_output.Text = "Metals used for repair\r\n";
             List<int> amounts_needed = new List<int>();
             bool useceramic = roadrepair_useceramic.Checked;
-            foreach(int roadpercent in RoadRepair_Percentages)
+            foreach (int roadpercent in RoadRepair_Percentages)
             {
                 int repairamount = GetRepairRoadAmount(roadpercent);
 
                 List<int> metalchunks;
-                if(useceramic)
+                if (useceramic)
                     metalchunks = MetalsConverter.CeramicChunks(repairamount);
                 else
                     metalchunks = MetalsConverter.MetalChunks(repairamount);
@@ -109,7 +109,7 @@ namespace DeathStrandingCalculator
 
         public void UpdateRoadBuilderOutput()
         {
-                roadbuilder_output.Text = "";
+            roadbuilder_output.Text = "";
             if (roadbuilder_ceramictotal.Value == 0 || roadbuilder_metaltotal.Value == 0)
                 return;
 
@@ -126,6 +126,7 @@ namespace DeathStrandingCalculator
             roadbuilder_output.Text = sb.ToString();
         }
         #endregion
+
         #region AdHoc
         private void adhoc_amount_ValueChanged(object sender, EventArgs e)
         {
@@ -134,7 +135,7 @@ namespace DeathStrandingCalculator
 
         private void adhoc_type_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(sender != null && sender is ComboBox)
+            if (sender != null && sender is ComboBox)
             {
                 ComboBox source = sender as ComboBox;
                 if (!string.IsNullOrEmpty(source.Text))
@@ -145,13 +146,20 @@ namespace DeathStrandingCalculator
         private void UpdateAdHocOutput()
         {
             int amount = (int)Math.Round(adhoc_amount.Value);
+            bool printaggregate = adhoc_aggreggate.Checked;
             ResourceType type;
             if (Enum.TryParse<ResourceType>(adhoc_type.Text, out type) == false)
                 return;
-            adhoc_output.Text = MetalsConverter.PrintChunks(amount, type);
+            if (printaggregate == false)
+                adhoc_output.Text = MetalsConverter.PrintChunks(amount, type);
+            else
+                adhoc_output.Text = MetalsConverter.PrintChunksAggregate(amount, type);
         }
 
-
+        private void Adhoc_aggreggate_CheckedChanged(object? sender, EventArgs e)
+        {
+            UpdateAdHocOutput();
+        }
         #endregion
 
     }
