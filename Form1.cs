@@ -14,6 +14,8 @@ namespace DeathStrandingCalculator
             this.adhoc_amount.KeyDown += SuppressEnterKeyDown;
             this.roadrepair_percentageleft.KeyDown += Roadrepair_percentageleft_KeyDown;
             this.adhoc_aggreggate.CheckedChanged += Adhoc_aggreggate_CheckedChanged;
+            this.adhoc_less.KeyDown += SuppressEnterKeyDown;
+            this.adhoc_less.ValueChanged += adhoc_amount_ValueChanged;
         }
 
 
@@ -128,7 +130,7 @@ namespace DeathStrandingCalculator
         #endregion
 
         #region AdHoc
-        private void adhoc_amount_ValueChanged(object sender, EventArgs e)
+        private void adhoc_amount_ValueChanged(object? sender, EventArgs e)
         {
             UpdateAdHocOutput();
         }
@@ -146,6 +148,8 @@ namespace DeathStrandingCalculator
         private void UpdateAdHocOutput()
         {
             int amount = (int)Math.Round(adhoc_amount.Value);
+            int less = (int)Math.Round(adhoc_less.Value);
+            amount -= less;
             bool printaggregate = adhoc_aggreggate.Checked;
             ResourceType type;
             if (Enum.TryParse<ResourceType>(adhoc_type.Text, out type) == false)

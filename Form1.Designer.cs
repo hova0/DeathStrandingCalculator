@@ -55,6 +55,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.adhoc_less = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
             this.adhoc_aggreggate = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.roadbuilder_metalinitial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roadrepair_percentageleft)).BeginInit();
@@ -71,6 +74,7 @@
             this.panel3.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.adhoc_less)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -252,7 +256,7 @@
             // 
             // adhoc_amount
             // 
-            this.adhoc_amount.Location = new System.Drawing.Point(3, 6);
+            this.adhoc_amount.Location = new System.Drawing.Point(8, 24);
             this.adhoc_amount.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -271,20 +275,20 @@
             "Ceramic",
             "Chemical",
             "SpecialAlloy"});
-            this.adhoc_type.Location = new System.Drawing.Point(95, 6);
+            this.adhoc_type.Location = new System.Drawing.Point(192, 24);
             this.adhoc_type.Name = "adhoc_type";
             this.adhoc_type.Size = new System.Drawing.Size(121, 23);
-            this.adhoc_type.TabIndex = 13;
+            this.adhoc_type.TabIndex = 14;
             this.adhoc_type.SelectedIndexChanged += new System.EventHandler(this.adhoc_type_SelectedIndexChanged);
             // 
             // adhoc_output
             // 
             this.adhoc_output.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.adhoc_output.Location = new System.Drawing.Point(0, 38);
+            this.adhoc_output.Location = new System.Drawing.Point(0, 51);
             this.adhoc_output.Multiline = true;
             this.adhoc_output.Name = "adhoc_output";
             this.adhoc_output.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.adhoc_output.Size = new System.Drawing.Size(577, 315);
+            this.adhoc_output.Size = new System.Drawing.Size(577, 302);
             this.adhoc_output.TabIndex = 14;
             this.adhoc_output.TabStop = false;
             // 
@@ -371,22 +375,55 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.adhoc_less);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.adhoc_aggreggate);
             this.panel1.Controls.Add(this.adhoc_amount);
             this.panel1.Controls.Add(this.adhoc_type);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(577, 38);
+            this.panel1.Size = new System.Drawing.Size(577, 51);
             this.panel1.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(100, 6);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 15);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Less";
+            // 
+            // adhoc_less
+            // 
+            this.adhoc_less.Location = new System.Drawing.Point(100, 24);
+            this.adhoc_less.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.adhoc_less.Name = "adhoc_less";
+            this.adhoc_less.Size = new System.Drawing.Size(86, 23);
+            this.adhoc_less.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(9, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 15);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Amount";
             // 
             // adhoc_aggreggate
             // 
             this.adhoc_aggreggate.AutoSize = true;
-            this.adhoc_aggreggate.Location = new System.Drawing.Point(222, 8);
+            this.adhoc_aggreggate.Location = new System.Drawing.Point(319, 28);
             this.adhoc_aggreggate.Name = "adhoc_aggreggate";
             this.adhoc_aggreggate.Size = new System.Drawing.Size(86, 19);
-            this.adhoc_aggreggate.TabIndex = 14;
+            this.adhoc_aggreggate.TabIndex = 15;
             this.adhoc_aggreggate.Text = "Aggregate?";
             this.adhoc_aggreggate.UseVisualStyleBackColor = true;
             // 
@@ -421,6 +458,7 @@
             this.tabPage3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.adhoc_less)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -455,5 +493,8 @@
         private Label label4;
         private CheckBox roadrepair_useceramic;
         private CheckBox adhoc_aggreggate;
+        private Label label7;
+        private NumericUpDown adhoc_less;
+        private Label label6;
     }
 }
